@@ -85,7 +85,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_agrave, tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_,      quit,           {0} },
+	{ MODKEY,                       XK_m,      quit,           {0} },
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
