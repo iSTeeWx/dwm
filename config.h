@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include "fibonacci.c"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -43,6 +44,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -74,19 +76,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	// { MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_agrave, tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_,      quit,           {0} },
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
