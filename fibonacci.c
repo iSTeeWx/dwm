@@ -21,14 +21,10 @@ dwindle(Monitor *mon) {
 				else
 					nw /= 2;
 			}
-			if((i % 4) == 0)
-				ny += nh;
-			else if((i % 4) == 1)
-				nx += nw;
-			else if((i % 4) == 2)
-				ny += nh;
-			else if((i % 4) == 3)
-				nx += nw;
+
+			if((i % 2) == 0) ny += nh;
+			else if((i % 2) == 1) nx += nw;
+
 			if(i == 0) {
 				if(n != 1)
 					nw = mon->ww * mon->mfact;
