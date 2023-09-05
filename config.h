@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-#include "fibonacci.c"
+#include "fibonacci_gaps.c"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
