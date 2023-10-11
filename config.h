@@ -45,6 +45,8 @@ static const Layout layouts[] = {
 	{ "󰊓",      monocle },
 };
 
+static void changevolume(const Arg *arg);
+
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
@@ -61,8 +63,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_accent, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
+#include <X11/XF86keysym.h>
+
 static const Key keys[] = {
 	/* modifier                     key                    function        argument */
+	{ 0,                            XF86XK_AudioMute,      changevolume,   {.i = 0} },
+	{ 0,                            XF86XK_AudioRaiseVolume,changevolume,  {.i = +1} },
+	{ 0,                            XF86XK_AudioLowerVolume,changevolume,  {.i = -1} },
 	{ MODKEY,                       XK_space,              spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,             spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,                  togglebar,      {0} },
@@ -111,3 +118,23 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+void changevolume(const Arg *arg) {
+  const char *commandreloadbar[] = { "./.local/share/src/dwmstatus/dwmstatus-restart", NULL };
+  const char *commandtogglemute[] = { "pamixer", "-t", NULL };
+  const char *commandincrease[] = { "pamixer", "-i", "5", NULL };
+  const char *commanddecrease[] = { "pamixer", "-d", "5", NULL };
+  
+  if (arg->i == 0) {
+    Arg a = {.v = commandtogglemute};
+    spawn(&a);
+  } else if (arg->i > 0) {
+    Arg a = {.v = commandincrease};
+    spawn(&a);
+  } else if (arg->i < 0) {
+    Arg a = {.v = commanddecrease};
+    spawn(&a);
+  }
+
+  Arg a1 = {.v = commandreloadbar};
+  spawn(&a1);
+}
