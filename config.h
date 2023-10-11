@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-#include "fibonacci.c"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -40,11 +39,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-	{ "[\\]",     dwindle },
+	/* symbol   arrange function */
+	{ "󰍲",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "󰊓",      monocle },
 };
 
 /* key definitions */
@@ -64,37 +62,36 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "kitty", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_w,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
+	/* modifier                     key                    function        argument */
+	{ MODKEY,                       XK_space,              spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return,             spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_b,                  togglebar,      {0} },
+	{ MODKEY,                       XK_j,                  focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,                  focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_i,                  incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,                  incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_h,                  setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,                  setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_Return,             zoom,           {0} },
+	{ MODKEY,                       XK_Tab,                view,           {0} },
+	{ MODKEY,                       XK_w,                  killclient,     {0} },
+	{ MODKEY,                       XK_t,                  setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,                  setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_r,                  setlayout,      {.v = &layouts[2]} },
 	// { MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_agrave, tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_m,      quit,           {0} },
-	TAGKEYS(                        XK_ampersand,              0)
-	TAGKEYS(                        XK_eacute,                 1)
-	TAGKEYS(                        XK_quotedbl,               2)
-	TAGKEYS(                        XK_apostrophe,             3)
-	TAGKEYS(                        XK_parenleft,              4)
-	TAGKEYS(                        XK_minus,                  5)
-	TAGKEYS(                        XK_egrave,                 6)
-	TAGKEYS(                        XK_underscore,             7)
-	TAGKEYS(                        XK_ccedilla,               8)
+	{ MODKEY|ShiftMask,             XK_space,             togglefloating,  {0} },
+	{ MODKEY,                       XK_agrave,            view,            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_agrave,            tag,             {.ui = ~0 } },
+	{ MODKEY,                       XK_m,                 quit,            {0} },
+	TAGKEYS(                        XK_ampersand,                          0)
+	TAGKEYS(                        XK_eacute,                             1)
+	TAGKEYS(                        XK_quotedbl,                           2)
+	TAGKEYS(                        XK_apostrophe,                         3)
+	TAGKEYS(                        XK_parenleft,                          4)
+	TAGKEYS(                        XK_minus,                              5)
+	TAGKEYS(                        XK_egrave,                             6)
+	TAGKEYS(                        XK_underscore,                         7)
+	TAGKEYS(                        XK_ccedilla,                           8)
 };
 
 /* button definitions */
