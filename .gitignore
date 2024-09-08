@@ -1,3 +1,2 @@
 dwm
-dwm.o
-util.o
+*.o
