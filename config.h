@@ -12,7 +12,7 @@ static const char col_gray1[]       = "#282A36";  /* Bar color */
 static const char col_gray2[]       = "#282A36";  /* Border non selected */
 static const char col_gray3[]       = "#F8F8F2";  /* Bar text color */
 static const char col_gray4[]       = "#F8F8F2";  /* Bar text tag selected */
-static const char col_accent[]      = "#FF5555";  /* Tag selected bg, or border selected */
+static const char col_accent[]      = "#7287fd";  /* Tag selected bg, or border selected */
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
 	[SchemeNorm] = { col_gray3, col_gray1,  col_gray2 },
