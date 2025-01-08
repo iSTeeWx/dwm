@@ -9,15 +9,10 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Nerd Font Propo:size=14:style=Bold" };
 static const char dmenufont[]       = "SauceCodePro NFM:size=14:style=Bold";
-static const char col_gray1[]       = "#282A36";  /* Bar color */
-static const char col_gray2[]       = "#282A36";  /* Border non selected */
-static const char col_gray3[]       = "#F8F8F2";  /* Bar text color */
-static const char col_gray4[]       = "#F8F8F2";  /* Bar text tag selected */
-static const char col_accent[]      = "#7287fd";  /* Tag selected bg, or border selected */
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
-	[SchemeNorm] = { col_gray3, col_gray1,  col_gray2 },
-	[SchemeSel]  = { col_gray4, col_accent, col_accent },
+	[SchemeNorm] = { "#F8F8F2", "#282A36", "#282A36" },
+	[SchemeSel]  = { "#F8F8F2", "#7287fd", "#7287fd" },
 };
 
 /* tagging */
