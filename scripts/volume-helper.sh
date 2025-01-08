@@ -26,8 +26,8 @@ fi
 
 if [[ $old_volume != $(pactl get-sink-volume 0) || $old_mute != $(pactl get-sink-mute 0) ]]; then
 	if [[ $(pactl get-sink-mute 0) == "Mute: yes" ]]; then
-		HERBE_ID=volume-notification herbe "volume: mute"
+		HERBE_ID=/volume-notification herbe "volume: mute"
 	else
-		HERBE_ID=volume-notification herbe "volume: $(pactl get-sink-volume 0 | grep -Po '\d+(?=%)' | head -n 1)%"
+		HERBE_ID=/volume-notification herbe "volume: $(pactl get-sink-volume 0 | grep -Po '\d+(?=%)' | head -n 1)%"
 	fi
 fi
