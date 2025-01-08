@@ -1,5 +1,8 @@
 #!/bin/bash
 
+old_volume=$(pactl get-sink-volume 0)
+old_mute=$(pactl get-sink-mute 0)
+
 if [[ $1 == "up" ]]; then
 	pactl set-sink-mute 0 false
 	pactl set-sink-volume 0 +5%
@@ -16,10 +19,15 @@ elif [[ $1 == "down" ]]; then
 	else
 		pactl set-sink-mute 0 false
 	fi
+
 elif [[ $1 == "mute" ]]; then
 	pactl set-sink-mute 0 toggle
 fi
 
-# sh /home/vlad/.local/src/dwmstatus/dwmstatus-restart
-echo $(pactl get-sink-volume 0 | grep -Po '\d+(?=%)' | head -n 1)
-echo $(pactl get-sink-mute 0)
+if [[ $old_volume != $(pactl get-sink-volume 0) || $old_mute != $(pactl get-sink-mute 0) ]]; then
+	if [[ $(pactl get-sink-mute 0) == "Mute: yes" ]]; then
+		HERBE_ID=volume-notification herbe "volume: mute"
+	else
+		HERBE_ID=volume-notification herbe "volume: $(pactl get-sink-volume 0 | grep -Po '\d+(?=%)' | head -n 1)%"
+	fi
+fi
