@@ -7,7 +7,7 @@ static const unsigned int gappx     = 4;        /* gap between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SauceCodePro NFM:size=14:style=Bold" };
+static const char *fonts[]          = { "FiraCode Nerd Font Propo:size=14:style=Bold" };
 static const char dmenufont[]       = "SauceCodePro NFM:size=14:style=Bold";
 static const char col_gray1[]       = "#282A36";  /* Bar color */
 static const char col_gray2[]       = "#282A36";  /* Border non selected */
