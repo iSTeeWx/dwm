@@ -59,9 +59,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
 
-static const char *volumeupcmd[]   = { "sh", "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "up", NULL };
-static const char *volumedowncmd[] = { "sh", "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "down", NULL };
-static const char *volumemutecmd[] = { "sh", "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "mute", NULL };
+static const char *volumeupcmd[]   = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "up", NULL };
+static const char *volumedowncmd[] = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "down", NULL };
+static const char *volumemutecmd[] = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "mute", NULL };
+
+static const char *statuscmd[] = { "/home/vlad/.local/src/dwm/scripts/battery-notification.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                    function        argument */
@@ -103,6 +105,7 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button1,        spawn,          {.v = statuscmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
