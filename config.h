@@ -68,6 +68,9 @@ static const char *volumeupcmd[]   = { "/home/vlad/.local/src/dwm/scripts/volume
 static const char *volumedowncmd[] = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "down", NULL };
 static const char *volumemutecmd[] = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "mute", NULL };
 
+static const char *brightnessupcmd[] = { "/home/vlad/.local/src/dwm/scripts/brightness-helper.sh", "up", NULL };
+static const char *brightnessdowncmd[] = { "/home/vlad/.local/src/dwm/scripts/brightness-helper.sh", "down", NULL };
+
 static const char *statuscmd[] = { "/home/vlad/.local/src/dwm/scripts/battery-notification.sh", NULL };
 
 static const Key keys[] = {
@@ -75,6 +78,8 @@ static const Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,        spawn,          {.v = volumemutecmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          {.v = volumeupcmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn,          {.v = volumedowncmd } },
+	{ 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessupcmd } },
+	{ 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdowncmd } },
 	{ MODKEY,                       XK_space,                spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,                    spawn,          {.v = browsercmd } },
