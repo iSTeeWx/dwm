@@ -17,11 +17,12 @@ static const char col_accent[]      = "#7287fd";  /* Tag selected bg, or border 
 static const char *colors[][3]      = {
 	/*               fg         bg          border   */
 	[SchemeNorm] = { col_gray3, col_gray1,  col_gray2 },
-	[SchemeSel]  = { col_gray4, col_accent, col_accent },
+	[SchemeSel]  = { col_accent, col_gray1, col_accent },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "󰎦", "󰎩", "󰎬", "󰎮", "󰎰" };
+static const char *tags_occ[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱" };
 
 static const Rule rules[] = {
 	/* xprop(1):
