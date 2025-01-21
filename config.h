@@ -74,6 +74,9 @@ static const char *brightnessdowncmd[] = { "/home/vlad/.local/src/dwm/scripts/br
 
 static const char *statuscmd[] = { "/home/vlad/.local/src/dwm/scripts/battery-notification.sh", NULL };
 
+static const char *screenselectcmd[] = { "scrot", "--select", NULL };
+static const char *screencmd[] = { "scrot", "--focused", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key                    function        argument */
 	{ 0,                            XF86XK_AudioMute,        spawn,          {.v = volumemutecmd } },
@@ -81,6 +84,8 @@ static const Key keys[] = {
 	{ 0,                            XF86XK_AudioLowerVolume, spawn,          {.v = volumedowncmd } },
 	{ 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessupcmd } },
 	{ 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdowncmd } },
+	{ 0,                            XK_Print,                spawn,          {.v = screenselectcmd } },
+	{ ShiftMask,                    XK_Print,                spawn,          {.v = screencmd } },
 	{ MODKEY,                       XK_space,                spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,                    spawn,          {.v = browsercmd } },
