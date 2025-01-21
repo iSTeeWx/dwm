@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_accent, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *browsercmd[]  = { "chromium", NULL };
+static const char *browsercmd[]  = { "floorp", NULL };
 
 static const char *volumeupcmd[]   = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "up", NULL };
 static const char *volumedowncmd[] = { "/home/vlad/.local/src/dwm/scripts/volume-helper.sh", "down", NULL };
